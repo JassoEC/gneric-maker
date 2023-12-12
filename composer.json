@@ -1,0 +1,42 @@
+{
+    "name": "jassoec/generic-maker",
+    "autoload": {
+        "psr-4": {
+            "Jassoec\\GenericMaker\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emanuel Campos",
+            "email": "isw.ecamposj@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "orchestra/testbench": "^8.14",
+        "phpunit/phpunit": "10.5.x-dev",
+        "nunomaduro/collision": "^7.8"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jassoec\\GenericMaker\\App\\": "workbench/app/",
+            "Jassoec\\GenericMaker\\Database\\Factories\\": "workbench/database/factories/",
+            "Jassoec\\GenericMaker\\Database\\Seeders\\": "workbench/database/seeders/",
+            "Jassoec\\GenericMaker\\Tests\\": "workbench/tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ]
+    }
+}
