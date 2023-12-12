@@ -1,5 +1,9 @@
 {
     "name": "jassoec/generic-maker",
+    "keywords": [
+        "laravel"
+    ],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Jassoec\\GenericMaker\\": "src/"
@@ -11,7 +15,6 @@
             "email": "isw.ecamposj@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require-dev": {
         "orchestra/testbench": "^8.14",
         "phpunit/phpunit": "10.5.x-dev",
@@ -38,5 +41,7 @@
             "@build",
             "@php vendor/bin/testbench serve"
         ]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
